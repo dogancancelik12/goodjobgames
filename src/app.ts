@@ -1,7 +1,7 @@
 import * as express from 'express';
-import { createDbConnection } from '../src/database/connectDb';
-import { getPlayer,createPlayer,createScore } from '../src/controllers/player';
-import { getLeaderboard } from '../src/controllers/leaderboard';
+import { createDbConnection } from './database/connectDb';
+import { getPlayer,createPlayer,createScore } from './controllers/player';
+import { getLeaderboard } from './controllers/leaderboard';
 import middlewares from './config/middlewares';
 const cors = require('cors');
 
