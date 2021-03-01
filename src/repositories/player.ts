@@ -17,8 +17,14 @@ const createPlayerRepository = () => {
   };
 
   const getPlayers = async (filter?:any): Promise<Player[]> => {
-    const players = await Player.find();
-    return players;
+    if(filter){
+      const players = await Player.find({country: filter});
+      return players;
+    }else {
+      const players = await Player.find();
+      return players;
+    }
+    
   };
 
   const updatePlayer = async (score: Score): Promise<Player> => {

@@ -51,11 +51,9 @@ const createPlayerService = (): PlayerService => {
   }
 
   const getLeaderboard = async (filter?:any)=>{
-    const players = await PlayerRepository.getPlayers()
+    const players = await PlayerRepository.getPlayers(filter)
     const sortedPlayers = _.sortBy(players, (player:any) => player.points).reverse()
-    console.log(sortedPlayers)
-    const leaderboard = sortedPlayers.map((player:any,index:number) => ({display_name: player.display_name,user_id:player.user_id, points:player.points,rank: index +1 }))
-    console.log(leaderboard)
+    const leaderboard = sortedPlayers.map((player:any,index:number) => ({display_name: player.display_name,user_id:player.user_id, points:player.points,rank: index +1, country: player.country }))
     // logger.info('leaderboard: %j', leaderboard)
     return leaderboard
 

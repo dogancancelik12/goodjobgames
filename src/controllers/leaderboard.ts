@@ -7,7 +7,8 @@ export const getLeaderboard: RequestHandler = async (req, res) => {
     user_id: player.user_id,
     display_name: player.display_name,
     points: player.points,
-    rank: player.rank
+    rank: player.rank,
+    country: player.country
   }))
   res.status(200).json(playersResponse);
 }
